@@ -1,0 +1,82 @@
+import React ,{Component} from 'react';
+import { StyleSheet, Text, View , Image, TouchableOpacity } from 'react-native';
+import {heightPercentageToDP as hp, widthPercentageToDP as wp} from 'react-native-responsive-screen';
+import StarRating from 'react-native-star-rating';
+import { FalseLoader, GetSampleWorkImages, GetContractorsReviews } from '../../../Redux/createJob/jobAction' ;
+import { connect } from 'react-redux';
+import { FALSE_SAMPLE_WORK_AND_REVIEWS_FLAG } from '../../../Redux/createJob/actionType';
+
+class SpecificContractors extends Component{
+  onViewProfile = () => {
+    console.log(`*********** ${this.props.item.id}   ${this.props.item.display_name}`);
+    var formData = new FormData();
+    formData.append('id', this.props.item.id);
+    this.props.FalseLoader(FALSE_SAMPLE_WORK_AND_REVIEWS_FLAG);
+    this.props.GetSampleWorkImages(this.props.userToken, formData);
+    this.props.GetContractorsReviews(this.props.userToken, formData);
+    this.props.navigation.navigate('ContractorsDetails', {details : this.props.item});
+  }
+  render(){
+    return(
+      <View style={styles.container}>
+        <View style={{marginHorizontal : wp('2%'), height : hp('18%'),  justifyContent : 'center' , alignItems : 'center'}}>
+          <View style={{alignItems : 'center' , justifyContent : 'center', overflow : 'hidden' ,height : hp('12%') , width : hp('12%') , borderRadius : 100}}>
+            <Image source={{uri : this.props.item.profile_image}} resizeMode = 'contain' style={{ height : hp('12%') , width : hp('12%')}}/>
+          </View>
+        </View>
+        <View style={{flex : 1, paddingHorizontal : wp('2%'), paddingVertical : wp('1%')}}>
+          <View style={{ flexDirection : 'row' , justifyContent : 'space-between' , marginBottom : hp('0.5%')}}>
+           <TouchableOpacity onPress={this.onViewProfile}>
+             <Text style={{color : '#0071bc', fontSize:(17)}}>{this.props.item.display_name}</Text>
+            </TouchableOpacity>
+            <Text style={{color : '#292929' , fontSize:(15)}}>${this.props.item.hour_rate !== '' ? this.props.item.hour_rate : 0}</Text>
+          </View>
+           <Text style={{color : '#292929', fontSize : 14, marginBottom : hp('0.5%'), flexWrap : 'wrap'}}>{this.props.item.project_category.length > 0 ?  this.props.item.project_category.map(el => el.name +', ') : ''}</Text>
+          <View style={{flexDirection : 'row' , marginBottom : hp('0.5%') , justifyContent : 'space-between'}}>
+            <View style={{flexDirection : 'row', marginBottom : hp('0.5%')}}>
+              <Text style={{color : '#fcb016', fontSize : 14 , marginRight : wp('1%')}}>{parseFloat(this.props.item.rating_score).toFixed(1)}</Text>
+              <StarRating
+                maxStars={5}
+                fullStarColor='#fcb016'
+                emptyStarColor='#fcb016'
+                disabled = {true}
+                rating={parseFloat(this.props.item.rating_score)}
+                starSize = {18}
+                starStyle={{marginRight : wp('0.5%')}}
+                containerStyle={{marginRight : wp('1%')}}
+              />
+            </View>
+          </View>
+          <View style={{flexDirection : 'row', alignItems : 'center', marginBottom : hp('0.5%')}}>
+            <Image source={require('../../../assets/location-icon.png')} style={{height : hp('3%') , width: hp('3%') , marginRight:wp('1.5%')}} resizeMode='contain'/>
+            <Text style={{color : '#292929' , fontSize: 14}}>{this.props.item.state.name}, {this.props.item.et_zipcode}</Text>
+          </View>
+          {/* <View style={{flexDirection : 'row', alignItems : 'center', marginBottom : hp('0.5%')}}>
+            <Image source={require('../../../assets/Nouvelle_Contractors.png')} style={{height : hp('3%') , width: hp('3%') , marginRight:wp('1.5%')}} resizeMode='contain'/>
+            <Text style={{color : '#292929' , fontSize:(14)}}>{this.props.item.et_experience} years in business</Text>
+          </View>
+          <View style={{ flexDirection : 'row', alignItems : 'center', marginBottom : hp('0.5%')}}>
+            <Image source={require('../../../assets/shack_hand_icon.png')} style={{height : hp('3%') , width: hp('3%') , marginRight:wp('1.5%')}} resizeMode='contain'/>
+            <Text style={{color : '#292929' , fontSize:(14)}}>{this.props.item.total_projects_worked} hires on Nouvelle</Text>      
+          </View> */}
+        </View>
+      </View>
+    )
+  }
+}
+const mapStateToProps = state => ({
+  userToken : state.createJob.userLoginToken,
+});
+export default connect(mapStateToProps,{FalseLoader, GetSampleWorkImages, GetContractorsReviews})(SpecificContractors);
+
+const styles = StyleSheet.create({
+  container : {
+    flex : 1 ,
+    backgroundColor : '#f6f6f6' ,
+    marginBottom : hp('2%') ,
+    flexDirection : 'row' ,
+    paddingVertical : wp('1%') ,
+    paddingHorizontal : wp('2%')
+  },
+});
+

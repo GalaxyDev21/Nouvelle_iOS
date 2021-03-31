@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "612263948749",
+    "firebase_url": "https://nouvelle-3abdc.firebaseio.com",
+    "project_id": "nouvelle-3abdc",
+    "storage_bucket": "nouvelle-3abdc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:612263948749:android:a7708bbcd97bb5cafa1484",
+        "android_client_info": {
+          "package_name": "com.dl.nouvelle"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "612263948749-ek3gko48vc3jj3o214i0e8dp0ibnbp2k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWWs8MfqTooqcCvkoG9CJzCTwBu7o3zSo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "612263948749-ek3gko48vc3jj3o214i0e8dp0ibnbp2k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

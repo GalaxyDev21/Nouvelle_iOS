@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>612263948749-l271nbq27ugdeeucit821fbta0nenf81.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.612263948749-l271nbq27ugdeeucit821fbta0nenf81</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>612263948749-ctcdkddn52fq6hgr99dlu1n8j22htlja.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAMNnHF-ANrllfRr5wQY6jciFAFBxVCe0w</string>
+	<key>GCM_SENDER_ID</key>
+	<string>612263948749</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.dl.nouvelle</string>
+	<key>PROJECT_ID</key>
+	<string>nouvelle-3abdc</string>
+	<key>STORAGE_BUCKET</key>
+	<string>nouvelle-3abdc.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:612263948749:ios:51a70032b0709c19fa1484</string>
+	<key>DATABASE_URL</key>
+	<string>https://nouvelle-3abdc.firebaseio.com</string>
+</dict>
+</plist>
